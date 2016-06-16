@@ -77,7 +77,7 @@ controller.hears(['Hello', 'Hi','Hey'], 'direct_message,direct_mention,mention',
     });
 });
 
-controller.hears(['Yes'], 'direct_message,direct_mention,mention', function(bot, message) {
+controller.hears(['Yes', 'yes'], 'direct_message,direct_mention,mention', function(bot, message) {
 
     controller.storage.users.get(message.user, function(err, user) {
         bot.reply(message, "I'll be happy to help you in your apartment search. When are you moving? You can say 'in the next 30 days' or 'not this month' ");
