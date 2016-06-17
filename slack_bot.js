@@ -73,14 +73,21 @@ var listings = {
 
 controller.hears(['Hello', 'Hi','Hey'], 'direct_message,direct_mention,mention', function(bot, message) {
     controller.storage.users.get(message.user, function(err, user) {
-        bot.reply(message, "Hello! I can help you with your apartment search. Do you need help?");
+        bot.reply(message, "Hey there - Thanks for trying out frontdoor! My name is Stew - here to handle your tedious apartment search in the city - so I'm kind of your personal assistant. Ping me whenever and I'll send you a daily dose of beautiful apartments matching your living preferences if you just tell more about when you are moving, your budget, and what neighborhood you prefer to live in. Would you like to start now?");
     });
 });
 
 controller.hears(['Yes', 'yes'], 'direct_message,direct_mention,mention', function(bot, message) {
 
     controller.storage.users.get(message.user, function(err, user) {
-        bot.reply(message, "I'll be happy to help you in your apartment search. When are you moving? You can say 'in the next 30 days' or 'not this month' ");
+        bot.reply(message, "Great! When are you moving? You can say 'in the next 30 days' or 'not this month' ");
+    });
+});
+
+controller.hears(['No', 'no','nope','Nope'], 'direct_message,direct_mention,mention', function(bot, message) {
+
+    controller.storage.users.get(message.user, function(err, user) {
+        bot.reply(message, "Sure thing! No rush! Feel free to ping me anytime by saying 'Hi' or 'Hey' ");
     });
 });
 
@@ -123,3 +130,9 @@ controller.hears(['glen park', 'mission', 'SOMA'], 'direct_message,direct_mentio
     });
 });
 
+controller.hears(['Thanks', 'thanks','Thank you','thank you'], 'direct_message,direct_mention,mention', function(bot, message) {
+
+    controller.storage.users.get(message.user, function(err, user) {
+        bot.reply(message, "Ofcourse! Always a pleasure to help!");
+    });
+});
